@@ -84,7 +84,7 @@ const containerResultSearch = document.querySelector('#container-result-search')
 const inputSearchDoctor = document.querySelector('#input-search-doctor')
 inputSearchDoctor.addEventListener('input', () => {
     let resultSearch = listDoctor.filter((doctor) => {
-        return doctor.name.includes(inputSearchDoctor.value);
+        return doctor.username.includes(inputSearchDoctor.value);
     });
 
     if (resultSearch !== []) {
@@ -92,7 +92,7 @@ inputSearchDoctor.addEventListener('input', () => {
         containerResultSearch.style.display = 'block'
         resultSearch.forEach((doctor) => {
             containerResultSearch.insertAdjacentHTML('beforeend', `<div>
-        <h4>${doctor.name}</h4>
+        <h4>${doctor.username}</h4>
     <span>${doctor.expertise}</span>
             </div>`)
         })

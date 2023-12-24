@@ -1,34 +1,10 @@
-const listDoctor = [
-    {
-        name: "ایمان نورالهی",
-        expertise: 'جراح قلب'
-    },
-    {
-        name: "مهدی خرسند",
-        expertise: 'جراح مغز'
-    }, {
-        name: "مهرشاد پاک زاد",
-        expertise: 'جراح داخلی'
-    }, {
-        name: "مهدی پورفرهادی",
-        expertise: 'چشم پزشک'
-    }, {
-        name: "علی رضا ذکی پور",
-        expertise: 'جراح قلب'
-    }, {
-        name: "پارسا محمد عیلزاده",
-        expertise: 'فیزیوتراپ'
-    }, {
-        name: "جواد پراهون",
-        expertise: 'جراح قلب'
-    }, {
-        name: "محمد رضا فرجو",
-        expertise: 'حلق و بینی'
-    }, {
-        name: "ابوالفضل جاوید",
-        expertise: 'مغز و اعصاب'
-    }, {
-        name: "پدرام هاشمی",
-        expertise: 'ترک اعتیاد'
-    },
-]
+let listDoctor = []
+fetch('https://university-baabb-default-rtdb.firebaseio.com/doctor.json').then(res => res.json())
+    .then(data => {
+        let convertData = Object.entries(data)
+        convertData.forEach(data => {
+            listDoctor.push(data[1])
+            console.log(listDoctor)
+        })
+    })
+    .catch(() => alert('اتصال به درستی برقرار نیست'))
